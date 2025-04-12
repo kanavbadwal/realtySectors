@@ -11,6 +11,7 @@ import "./App.css";
 import "./index.css";
 import React from "react";
 import Location from "./components/svg/Location";
+import logo from "./assets/images/image-wo-bg.png";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -166,18 +167,25 @@ function App() {
             </div>
 
             {/* Hero Content */}
-            <div className="absolute top-1/2 left-8 sm:left-16 -translate-y-1/2 z-10 flex flex-col items-start gap-4 max-w-xl px-12 sm:px-0">
-              <h1 className="text-4xl sm:text-7xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
-                REALTY <span className="text-blue-400">SECTORS</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-white tracking-wide drop-shadow-md md:backdrop-blur-sm rounded-xl font-semibold">
-                Connecting You to Your Dream Property –{" "}
-                <span className="font-semibold">Where Deals Meet Desires!</span>
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+            <div className="absolute top-1/2 left-4 sm:left-8 md:left-16 -translate-y-1/2 z-10 flex flex-col items-start justify-between h-full py-20 md:py-auto md:h-auto sm:gap-4 max-w-xl px-4 sm:px-8 md:px-12">
+              <div className="flex flex-col items-start gap-2 sm:gap-4">
+                <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight drop-shadow-lg flex items-center gap-2">
+                  <span className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg bg-white/50 mr-2">
+                    <img src={logo} alt="Logo" className="w-full h-full" />
+                  </span>
+                  REALTY <span className="text-blue-400">SECTORS</span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-white tracking-wide drop-shadow-md sm:backdrop-blur-none backdrop-blur-sm rounded-xl font-semibold">
+                  Connecting You to Your Dream Property –{" "}
+                  <span className="font-semibold">
+                    Where Deals Meet Desires!
+                  </span>
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="mt-6 px-8 py-3 bg-white/20 backdrop-blur-sm text-white rounded-full hover:bg-white/30 transition-all duration-300 border border-white/30 shadow-lg"
+                  className="mt-4 sm:mt-6 px-6 sm:px-8 py-2 sm:py-3 bg-white/20 backdrop-blur-sm text-white rounded-full hover:bg-white/30 transition-all duration-300 border border-white/30 shadow-lg text-sm sm:text-base"
                 >
                   Get Started
                 </button>
@@ -286,10 +294,10 @@ function App() {
               <div>
                 <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
                 <ul className="space-y-2 text-gray-400">
-                  <li>123 Real Estate Avenue</li>
-                  <li>Chandigarh, 160001</li>
-                  <li>Phone: +91 123 456 7890</li>
-                  <li>Email: info@realtysectors.com</li>
+                  <li>SCO 671, Sector 70</li>
+                  <li>Mohali, 160071</li>
+                  <li>Phone: +91 883 750 8020</li>
+                  <li>Email: realtysectors@gmail.com</li>
                 </ul>
               </div>
 

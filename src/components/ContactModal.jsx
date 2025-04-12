@@ -60,7 +60,7 @@ const ContactModal = ({ isModalOpen, setIsModalOpen }) => {
           </div>
         ) : (
           <form
-            action="https://formsubmit.co/kanavbadwal@gmail.com"
+            action="https://formsubmit.co/realtysectors@gmail.com"
             method="POST"
             className="space-y-4"
             onSubmit={handleSubmit}

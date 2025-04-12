@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
   //   const encodedMessage = encodeURIComponent(message);
 
   const handleClick = () => {
-    const url = `https://wa.me/9803400001?text=Hello,%20I%27m%20interested%20in%20your%20services!%20Please%20call%20me%20back.`;
+    const url = `https://wa.me/+918837508020?text=Hello,%20I%27m%20interested%20in%20your%20services!%20Please%20call%20me%20back.`;
     window.open(url, "_blank");
   };
 
