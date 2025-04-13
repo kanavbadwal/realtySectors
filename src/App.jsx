@@ -10,7 +10,6 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import "./App.css";
 import "./index.css";
 import React from "react";
-import Location from "./components/svg/Location";
 import logo from "./assets/images/image-wo-bg.png";
 import {
   FaChartLine,
@@ -20,10 +19,7 @@ import {
   FaPhone,
   FaEnvelope,
   FaMapMarkedAlt,
-  FaHome,
   FaHandshake,
-  FaShieldAlt,
-  FaSearch,
   FaStar,
   FaArrowRight,
   FaArrowLeft,
@@ -40,6 +36,9 @@ function App() {
       </div>
     );
   };
+
+  const logoMatchingColor = "#e0e71b";
+  const logoMatchingColorHover = "#eef224";
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -173,10 +172,19 @@ function App() {
             <div className="absolute top-1/2 left-4 sm:left-8 md:left-16 -translate-y-1/2 z-10 flex flex-col items-start justify-between h-full py-20 md:py-auto md:h-auto sm:gap-4 max-w-xl px-4 sm:px-8 md:px-12">
               <div className="flex flex-col items-start gap-2 sm:gap-4">
                 <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight drop-shadow-lg flex items-center gap-2">
-                  <span className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg bg-white/50 mr-2">
+                  <span className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg mr-2">
                     <img src={logo} alt="Logo" className="w-full h-full" />
                   </span>
-                  REALTY <span className="text-blue-400">SECTORS</span>
+                  REALTY{" "}
+                  <span
+                    className={`opacity-95`}
+                    style={{
+                      // text color
+                      color: logoMatchingColor,
+                    }}
+                  >
+                    SECTORS
+                  </span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-white tracking-wide drop-shadow-md sm:backdrop-blur-none backdrop-blur-sm rounded-xl font-semibold">
                   Connecting You to Your Dream Property –{" "}
@@ -297,56 +305,6 @@ function App() {
         </ScrollAnimation>
       </section>
 
-      {/* Features Section - White Background */}
-      {/* <section className="bg-gradient-to-b from-transparent via-slate-200 to-transparent dark:from-transparent dark:via-gray-800/80 dark:to-gray-700/80 py-16">
-        <ScrollAnimation>
-          <div className="flex flex-row justify-center gap-8 max-w-6xl mx-auto px-4">
-            <div className="flex-1 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border dark:border-gray-700 transform hover:-translate-y-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
-                  <FaMapMarkerAlt className="text-blue-500 dark:text-blue-300 text-2xl" />
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                  Prime Location
-                </h3>
-              </div>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Strategic properties located in the heart of Tricity, offering
-                excellent connectivity and proximity to essential amenities.
-              </p>
-            </div>
-            <div className="flex-1 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border dark:border-gray-700 transform hover:-translate-y-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
-                  <FaChartLine className="text-blue-500 dark:text-blue-300 text-2xl" />
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                  Investment Growth
-                </h3>
-              </div>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Benefit from the rapidly developing Mohali region with
-                properties that promise strong appreciation potential.
-              </p>
-            </div>
-            <div className="flex-1 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border dark:border-gray-700 transform hover:-translate-y-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
-                  <FaShieldAlt className="text-blue-500 dark:text-blue-300 text-2xl" />
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                  Trusted Service
-                </h3>
-              </div>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Experience reliable and transparent real estate services with
-                our expert team guiding you every step of the way.
-              </p>
-            </div>
-          </div>
-        </ScrollAnimation>
-      </section> */}
-
       {/* Footer Section */}
       <footer className="bg-gray-900 dark:bg-gray-950 text-white pt-8 sm:pt-16 pb-8">
         <ScrollAnimation>
@@ -389,7 +347,7 @@ function App() {
                 <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
                 <ul className="space-y-3 text-gray-400">
                   <li className="flex items-center gap-2">
-                    <FaMapMarkedAlt className="text-blue-500" />
+                    <FaMapMarkedAlt className={`text-[${logoMatchingColor}]`} />
                     SCO 671, Sector 70
                   </li>
                   <li className="flex items-center gap-2">
@@ -397,11 +355,11 @@ function App() {
                     Mohali, 160071
                   </li>
                   <li className="flex items-center gap-2">
-                    <FaPhone className="text-blue-500" />
+                    <FaPhone className={`text-[${logoMatchingColor}]`} />
                     +91 883 750 8020
                   </li>
                   <li className="flex items-center gap-2">
-                    <FaEnvelope className="text-blue-500" />
+                    <FaEnvelope className={`text-[${logoMatchingColor}]`} />
                     realtysectors@gmail.com
                   </li>
                 </ul>
@@ -412,7 +370,13 @@ function App() {
                 <h4 className="text-lg font-semibold mb-4">Get in Touch</h4>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center gap-2"
+                  className={`text-black py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center gap-2`}
+                  style={{
+                    backgroundColor: logoMatchingColor,
+                    hover: {
+                      backgroundColor: logoMatchingColorHover,
+                    },
+                  }}
                 >
                   <FaEnvelope />
                   Contact Us
@@ -432,6 +396,8 @@ function App() {
         <ContactModal
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
+          logoMatchingColor={logoMatchingColor}
+          logoMatchingColorHover={logoMatchingColorHover}
         />
       </footer>
     </div>

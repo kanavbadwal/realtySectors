@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-const ContactModal = ({ isModalOpen, setIsModalOpen }) => {
+const ContactModal = ({
+  isModalOpen,
+  setIsModalOpen,
+  logoMatchingColor,
+  logoMatchingColorHover,
+}) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -106,7 +111,13 @@ const ContactModal = ({ isModalOpen, setIsModalOpen }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full text-black py-2 px-4 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                backgroundColor: logoMatchingColor,
+                hover: {
+                  backgroundColor: logoMatchingColorHover,
+                },
+              }}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
