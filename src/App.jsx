@@ -12,6 +12,24 @@ import "./index.css";
 import React from "react";
 import Location from "./components/svg/Location";
 import logo from "./assets/images/image-wo-bg.png";
+import {
+  FaChartLine,
+  FaBuilding,
+  FaRoad,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkedAlt,
+  FaHome,
+  FaHandshake,
+  FaShieldAlt,
+  FaSearch,
+  FaStar,
+  FaArrowRight,
+  FaArrowLeft,
+  FaSun,
+  FaMoon,
+} from "react-icons/fa";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -66,17 +84,26 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen font-sans text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-      {/* Dark Mode Toggle */}
-      <button
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        className="fixed top-3 right-4 z-50 w-9 h-9 p-2 rounded-full bg-slate-100 backdrop-blur-sm text-white dark:bg-gray-800/20"
-        aria-label="Toggle dark mode"
-      >
-        {isDarkMode ? "☀️" : "🌙"}
-      </button>
-      <div className="p-2" />
+      <div className="flex justify-between items-center py-1 px-2">
+        {/* logo */}
+        <div className="flex items-center gap-2">
+          <img src={logo} alt="Logo" className="w-8 h-8" />
+        </div>
+        {/* Dark Mode Toggle */}
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="z-50 w-10 h-10 p-2 rounded-full bg-white backdrop-blur-sm text-black dark:text-white dark:bg-gray-800/20 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300 flex items-center justify-center"
+          aria-label="Toggle dark mode"
+        >
+          {isDarkMode ? (
+            <FaSun className="w-5 h-5" />
+          ) : (
+            <FaMoon className="w-5 h-5" />
+          )}
+        </button>
+      </div>
       {/* Hero Section - White Background */}
-      <section className="bg-white dark:bg-gray-900 py-5 sm:py-10">
+      <section className="bg-white dark:bg-gray-900 pb-5 !pt-0 sm:py-10">
         <div className="flex justify-center items-center">
           <div
             className="relative flex items-start justify-start overflow-hidden rounded-3xl shadow-2xl mx-2 sm:mx-8"
@@ -90,41 +117,17 @@ function App() {
               {/* Navigation Arrows */}
               <button
                 onClick={handlePrevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300 group"
                 aria-label="Previous slide"
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
+                <FaArrowLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
               </button>
               <button
                 onClick={handleNextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all duration-300 group"
                 aria-label="Next slide"
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                <FaArrowRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
               </button>
 
               <div
@@ -197,42 +200,97 @@ function App() {
       </section>
 
       {/* Creatives Section - Gray Background */}
-      <section className=" py-8 sm:py-16">
+      <section className="py-16 bg-gradient-to-b from-transparent via-gray-50 to-transparent dark:from-transparent dark:via-gray-900/50 dark:to-transparent">
         <ScrollAnimation>
           <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-16">
-              {/* Left Side - Headings */}
-              <div className="flex flex-col items-center sm:items-end gap-4 flex-1">
-                <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 dark:text-gray-100">
-                  Chandigarh Creatives
-                </h2>
-                <div className="border-b border-gray-300 w-[250px] sm:w-[330px]" />
-                <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 dark:text-gray-100">
-                  Mohali Creatives
-                </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-blue-500/10 rounded-full group-hover:bg-blue-500/20 transition-colors duration-300 mb-4">
+                    <FaChartLine className="text-blue-500 text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                    Best Investment
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Premium opportunities in Tricity near Chandigarh with
+                    exceptional growth potential
+                  </p>
+                </div>
               </div>
 
-              {/* Divider - Hidden on mobile */}
-              <div className="hidden sm:block h-32 w-px bg-gray-300"></div>
-              {/* Location Image */}
-              <Location
-                width={100}
-                height={100}
-                className="opacity-50 hidden sm:block dark:text-white"
-              />
-              {/* Divider - Hidden on mobile */}
-              <div className="hidden sm:block h-32 w-px bg-gray-300"></div>
-              <div className="block sm:hidden h-px w-[90%] bg-gray-300"></div>
+              <div className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-green-500/10 rounded-full group-hover:bg-green-500/20 transition-colors duration-300 mb-4">
+                    <FaBuilding className="text-green-500 text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                    Premium Properties
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    High ROI potential in prime locations with modern amenities
+                    and infrastructure
+                  </p>
+                </div>
+              </div>
 
-              {/* Right Side - Paragraph */}
-              <div className="flex-1 max-w-md text-center sm:text-left">
-                <p className="text-lg sm:text-xl leading-relaxed text-gray-600 dark:text-gray-300">
-                  Best Investment
-                  <br />
-                  Opportunities in Tricity
-                  <br />
-                  Near Chandigarh
-                </p>
+              <div className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-purple-500/10 rounded-full group-hover:bg-purple-500/20 transition-colors duration-300 mb-4">
+                    <FaRoad className="text-purple-500 text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                    Modern Infrastructure
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Excellent connectivity and future-ready developments in
+                    strategic locations
+                  </p>
+                </div>
+              </div>
+
+              <div className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-orange-500/10 rounded-full group-hover:bg-orange-500/20 transition-colors duration-300 mb-4">
+                    <FaMapMarkerAlt className="text-orange-500 text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                    Prime Location
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Strategic properties located in the heart of Tricity,
+                    offering excellent connectivity and proximity to essential
+                    amenities.
+                  </p>
+                </div>
+              </div>
+              <div className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-red-500/10 rounded-full group-hover:bg-red-500/20 transition-colors duration-300 mb-4">
+                    <FaHandshake className="text-red-500 text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                    Trusted Service
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Experience reliable and transparent real estate services
+                    with our expert team guiding you every step of the way.
+                  </p>
+                </div>
+              </div>
+              <div className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex flex-col items-center text-center">
+                  <div className="p-4 bg-teal-500/10 rounded-full group-hover:bg-teal-500/20 transition-colors duration-300 mb-4">
+                    <FaStar className="text-teal-500 text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                    Best Customer Service
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Experience reliable and transparent real estate services
+                    with our expert team guiding you every step of the way.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -240,30 +298,54 @@ function App() {
       </section>
 
       {/* Features Section - White Background */}
-      <section className="bg-gradient-to-b from-transparent via-slate-200 to-transparent dark:from-transparent dark:via-gray-800/80 dark:to-gray-700/80 py-16">
+      {/* <section className="bg-gradient-to-b from-transparent via-slate-200 to-transparent dark:from-transparent dark:via-gray-800/80 dark:to-gray-700/80 py-16">
         <ScrollAnimation>
-          <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-4">
-            <div className="flex-1 min-w-[300px] max-w-md p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border dark:border-gray-700">
-              <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
-                Prime Location
-              </h3>
+          <div className="flex flex-row justify-center gap-8 max-w-6xl mx-auto px-4">
+            <div className="flex-1 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border dark:border-gray-700 transform hover:-translate-y-1">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
+                  <FaMapMarkerAlt className="text-blue-500 dark:text-blue-300 text-2xl" />
+                </div>
+                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                  Prime Location
+                </h3>
+              </div>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 Strategic properties located in the heart of Tricity, offering
                 excellent connectivity and proximity to essential amenities.
               </p>
             </div>
-            <div className="flex-1 min-w-[300px] max-w-md p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow border dark:border-gray-700">
-              <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
-                Investment Growth
-              </h3>
+            <div className="flex-1 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border dark:border-gray-700 transform hover:-translate-y-1">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
+                  <FaChartLine className="text-blue-500 dark:text-blue-300 text-2xl" />
+                </div>
+                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                  Investment Growth
+                </h3>
+              </div>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 Benefit from the rapidly developing Mohali region with
                 properties that promise strong appreciation potential.
               </p>
             </div>
+            <div className="flex-1 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border dark:border-gray-700 transform hover:-translate-y-1">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
+                  <FaShieldAlt className="text-blue-500 dark:text-blue-300 text-2xl" />
+                </div>
+                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                  Trusted Service
+                </h3>
+              </div>
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Experience reliable and transparent real estate services with
+                our expert team guiding you every step of the way.
+              </p>
+            </div>
           </div>
         </ScrollAnimation>
-      </section>
+      </section> */}
 
       {/* Footer Section */}
       <footer className="bg-gray-900 dark:bg-gray-950 text-white pt-8 sm:pt-16 pb-8">
@@ -272,20 +354,32 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-16">
               {/* Company Info */}
               <div>
-                <h3 className="text-2xl font-bold mb-4">Realty Sectors</h3>
+                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <img src={logo} alt="Logo" className="w-8 h-8" />
+                  Realty Sectors
+                </h3>
                 <p className="text-gray-400 mb-4">
                   Your trusted partner in real estate, helping you find your
                   perfect property in Tricity.
                 </p>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-gray-400 hover:text-white">
-                    <i className="fab fa-facebook"></i>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                  >
+                    <i className="fab fa-facebook text-xl"></i>
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-white">
-                    <i className="fab fa-twitter"></i>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                  >
+                    <i className="fab fa-twitter text-xl"></i>
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-white">
-                    <i className="fab fa-instagram"></i>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                  >
+                    <i className="fab fa-instagram text-xl"></i>
                   </a>
                 </div>
               </div>
@@ -293,11 +387,23 @@ function App() {
               {/* Contact Info */}
               <div>
                 <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-                <ul className="space-y-2 text-gray-400">
-                  <li>SCO 671, Sector 70</li>
-                  <li>Mohali, 160071</li>
-                  <li>Phone: +91 883 750 8020</li>
-                  <li>Email: realtysectors@gmail.com</li>
+                <ul className="space-y-3 text-gray-400">
+                  <li className="flex items-center gap-2">
+                    <FaMapMarkedAlt className="text-blue-500" />
+                    SCO 671, Sector 70
+                  </li>
+                  <li className="flex items-center gap-2">
+                    {/* <FaMapMarkedAlt className="text-blue-500" /> */}
+                    Mohali, 160071
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <FaPhone className="text-blue-500" />
+                    +91 883 750 8020
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <FaEnvelope className="text-blue-500" />
+                    realtysectors@gmail.com
+                  </li>
                 </ul>
               </div>
 
@@ -306,8 +412,9 @@ function App() {
                 <h4 className="text-lg font-semibold mb-4">Get in Touch</h4>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center gap-2"
                 >
+                  <FaEnvelope />
                   Contact Us
                 </button>
               </div>
