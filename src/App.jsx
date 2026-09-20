@@ -193,20 +193,20 @@ function App() {
           >
             {/* Image Slider Container */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
-              {/* Navigation Arrows (Visible on sm/desktop only to prevent covering mobile text) */}
+              {/* Navigation Arrows (Visible on sm/desktop with dedicated padding margin) */}
               <button
                 onClick={handlePrevSlide}
-                className="hidden sm:flex absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 md:w-12 md:h-12 items-center justify-center bg-black/40 hover:bg-black/70 text-white backdrop-blur-md rounded-full transition-all duration-300 group shadow-lg cursor-pointer"
+                className="hidden sm:flex absolute left-3 sm:left-5 md:left-7 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 items-center justify-center bg-black/50 hover:bg-black/80 text-white backdrop-blur-md rounded-full transition-all duration-300 group shadow-lg cursor-pointer border border-white/20 hover:scale-105"
                 aria-label="Previous slide"
               >
-                <FaArrowLeft className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                <FaArrowLeft className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-300" />
               </button>
               <button
                 onClick={handleNextSlide}
-                className="hidden sm:flex absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 md:w-12 md:h-12 items-center justify-center bg-black/40 hover:bg-black/70 text-white backdrop-blur-md rounded-full transition-all duration-300 group shadow-lg cursor-pointer"
+                className="hidden sm:flex absolute right-3 sm:right-5 md:right-7 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 items-center justify-center bg-black/50 hover:bg-black/80 text-white backdrop-blur-md rounded-full transition-all duration-300 group shadow-lg cursor-pointer border border-white/20 hover:scale-105"
                 aria-label="Next slide"
               >
-                <FaArrowRight className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                <FaArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-300" />
               </button>
 
               <div
@@ -251,7 +251,7 @@ function App() {
             </div>
 
             {/* Hero Content */}
-            <div className="relative z-20 flex flex-col items-start justify-center max-w-2xl px-5 sm:px-10 md:px-14 py-8">
+            <div className="relative z-20 flex flex-col items-start justify-center max-w-2xl px-5 sm:pl-20 sm:pr-8 md:pl-24 md:pr-10 lg:pl-28 py-8">
               <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-yellow-400/20 backdrop-blur-md border border-yellow-400/40 text-yellow-300 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
                 <FaCompass className="text-yellow-400 text-xs sm:text-sm" />
                 <span>Prime Real Estate in Chandigarh & Tricity</span>
