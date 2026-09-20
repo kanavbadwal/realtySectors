@@ -1,4 +1,3 @@
-import * as React from "react";
 const Location = ({ width = 256, height = 256, className = "" }) => (
   <div className={`flex justify-center items-center`}>
     <svg
